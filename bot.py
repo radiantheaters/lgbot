@@ -3,7 +3,7 @@ from discord.ext import commands
 import time
 import random
 
-token = "NzgxMTQ5MDA1MjExODkzODAw.X75bsw.cxL3Rr2MNseq6s1pMempT658fGo"
+token = "token_name_here"
 bot = commands.Bot(command_prefix="lgbt!", help_command=None)
 
 @bot.event
