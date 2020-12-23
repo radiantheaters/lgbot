@@ -125,6 +125,71 @@ async def delete_adventure(ctx, number : int):
     embed = discord.Embed(title="Deleted adventure", description=f"Deleted adventure: {TBR}")
     await ctx.send(embed = embed)
 
+
+# Items
+
+items = []
+
+@bot.command(aliases=["add_item"])
+async def add_item(ctx, *, adventure_name):
+    print("Adding item: " + adventure_name)
+    adventures.append(adventure_name)
+    print("Added item: " + adventure_name)
+    embed = discord.Embed(title="Added item", description=f"Added item: {adventure_name}")
+    await ctx.send(embed = embed)
+
+@bot.command(aliases=["item_list"])
+async def item_list(ctx):
+    embed = discord.Embed(title="Item list", description="\n\n".join(item_list))
+    await ctx.send(embed = embed)
+
+@bot.command(aliases=["get_item"])
+async def get_item(ctx, number):
+    embed = discord.Embed(title="Got item", description=f"Got item: {adventures[int(number) - 1]}")
+    await ctx.send(embed = embed)
+
+
+
+@bot.command(aliases=["del_item"])
+async def delete_item(ctx, number : int):
+    TBR = adventures[number - 1] # To Be Removed
+    print("Removing item: " + str(TBR))
+    adventures.pop(int(number) - 1)
+    print("Removed item: " + str(TBR))
+    embed = discord.Embed(title="Deleted item", description=f"Deleted item: {TBR}")
+    await ctx.send(embed = embed)
+
+# Enemies
+
+enemies = []
+
+@bot.command(aliases=["add_enm"])
+async def add_enemy(ctx, *, adventure_name):
+    print("Adding enemy: " + adventure_name)
+    adventures.append(adventure_name)
+    print("Added enemy: " + adventure_name)
+    embed = discord.Embed(title="Added enemy", description=f"Added enemy: {adventure_name}")
+    await ctx.send(embed = embed)
+
+@bot.command(aliases=["enm_list"])
+async def enemy_list(ctx):
+    embed = discord.Embed(title="Item list", description="\n\n".join(enemies))
+    await ctx.send(embed = embed)
+
+@bot.command(aliases=["get_enm"])
+async def get_enemy(ctx, number):
+    embed = discord.Embed(title="Got item", description=f"Got item: {enemies[int(number) - 1]}")
+    await ctx.send(embed = embed)
+
+@bot.command(aliases=["del_item"])
+async def delete_enemy(ctx, number : int):
+    TBR = enemies[number - 1] # To Be Removed
+    print("Removing item: " + str(TBR))
+    adventures.pop(int(number) - 1)
+    print("Removed item: " + str(TBR))
+    embed = discord.Embed(title="Deleted item", description=f"Deleted item: {TBR}")
+    await ctx.send(embed = embed)
+
 # Technical Commands
 # Imported from other bot
 
