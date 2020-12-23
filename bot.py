@@ -130,7 +130,7 @@ async def delete_adventure(ctx, number : int):
 
 items = []
 
-@bot.command(aliases=["add_item"])
+@bot.command()
 async def add_item(ctx, *, adventure_name):
     print("Adding item: " + adventure_name)
     adventures.append(adventure_name)
@@ -138,12 +138,12 @@ async def add_item(ctx, *, adventure_name):
     embed = discord.Embed(title="Added item", description=f"Added item: {adventure_name}")
     await ctx.send(embed = embed)
 
-@bot.command(aliases=["item_list"])
+@bot.command()
 async def item_list(ctx):
     embed = discord.Embed(title="Item list", description="\n\n".join(item_list))
     await ctx.send(embed = embed)
 
-@bot.command(aliases=["get_item"])
+@bot.command()
 async def get_item(ctx, number):
     embed = discord.Embed(title="Got item", description=f"Got item: {adventures[int(number) - 1]}")
     await ctx.send(embed = embed)
